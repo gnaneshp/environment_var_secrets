@@ -30,7 +30,10 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: |
+         echo $MONGODB_USERNAME
+         echo $MONGODB_PASSWORD
+         echo ${{ env.MONGODB_CLUSTER_ADDRESS }}
   deploy:
     needs: test
     runs-on: ubuntu-latest
