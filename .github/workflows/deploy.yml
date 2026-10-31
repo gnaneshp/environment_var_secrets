@@ -7,7 +7,8 @@ on:
 env:
   MONGODB_DB_NAME: sample_mflix
 jobs:
-  test:   
+  test:
+    environment: testing
     env:
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
@@ -39,4 +40,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo "MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}"
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
